@@ -1,0 +1,42 @@
+body{
+	margin-top: 3%;
+}
+.box{
+	width: 400px;
+	height: 420px;
+	background-color: rgba(52, 73, 94, 0.7);
+	text-align: center;
+	margin-left: 100px;
+	border-style: solid;
+}
+
+.box img{
+	width: 200px;
+	height: 200px;
+	border: solid;
+	border-radius: 4px;	
+	margin-top: 30px;
+}
+
+.sideform{
+	width: 55%;
+	background-color: rgba(52, 73, 94, 0.7);
+	border: solid;
+	border-radius: 4px;
+	float: right;
+	margin-right: 5%;
+	margin-top: -420px;
+}
+
+.indent{
+	margin-left: 30px;
+}
+
+.end{
+	float: right;
+	margin-right: 300px;
+}
+
+.btn{
+	float: right;
+}
