@@ -1,14 +1,13 @@
 <?php include 'html/header.html';?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Date Picker</title>
+	<title>D'Leonor Hotel</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="Styles/sty.css">
+	<link rel="stylesheet" type="text/css" href="Styles/stysty.css">
 	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
 </head>
 <body>
@@ -16,22 +15,22 @@
 		<div class="slides">
 			<p>Welcome to D'Leonor Hotels</p>
 			<img src="Images/hotel9.jpg" style="width: 100%;  height: 680px;  margin-left: -1%; margin-top: -5%;" />
-			<a class="btn" href="information.php" style="font-family: border 'Bad Script', cursive; src: url('font-awesome/BadScript-Regular.ttf');">BOOK NOW</a>
+			<a class="btn" href="la/login.html" style="font-family:'Bad Script', cursive; src: url('font-awesome/BadScript-Regular.ttf');">BOOK NOW</a>
 		</div>
 		<div  class="slides">
 			<p>Be happy in our Luxury Rooms</p>
 			<img src="Images/hotel4.jpg" style="width: 100%; height:680px;  margin-left: -1%; margin-top: -5%;"/>
-			<a class="btn" href="information.php" style="font-family: 'Bad Script', cursive; src: url('font-awesome/BadScript-Regular.ttf');">BOOK NOW</a>
+			<a class="btn" href="la/login.html" style="font-family: 'Bad Script', cursive; src: url('font-awesome/BadScript-Regular.ttf');">BOOK NOW</a>
 		</div>
 		<div  class="slides">
 			<p>Have a great time with our private environment</p>
 			<img src="Images/outdoor.jpg" style="width: 100%; height:680px;  margin-left: -1%; margin-top: -5%;"/>
-			<a class="btn" href="information.php" style="font-family: 'Bad Script', cursive; src: url('font-awesome/BadScript-Regular.ttf')";>BOOK NOW</a>
+			<a class="btn" href="la/login.html" style="font-family: 'Bad Script', cursive; src: url('font-awesome/BadScript-Regular.ttf')";>BOOK NOW</a>
 		</div>
 		<div  class="slides">
 			<p>Enjoy staying in our Luxury Rooms</p>
 			<img src="Images/hue.jpg" style="width: 100%; height:680px;  margin-left: -1%; margin-top: -5%;"/>
-			<a class="btn" href="information.php" style="font-family: 'Bad Script', cursive; src: url('font-awesome/BadScript-Regular.ttf');">BOOK NOW</a>
+			<a class="btn" href="la/login.html" style="font-family: 'Bad Script', cursive; src: url('font-awesome/BadScript-Regular.ttf');">BOOK NOW</a>
 		</div>
 	</div>
 		<script>
@@ -112,7 +111,7 @@
 			<img src="Images/hotel11.jpg" style="width: 40%; height: 80%; float: right; margin-top: -5.5%; margin-right: 1%; border: 2px solid rgb(218,165,32);" >
 			<p>
 				<br>
-				The D'Leonor Hotel offers a new experience in hospitality − urban lifestyle hotels.<br>In which contemporary design with the local vibe to create an inviting place where relaxation, play, and work can mix. Thus, while every room type displays D'Leonor's trademark style and service, each has a distinct personality all its own.
+				The D'Leonor Hotel offers a new experience in hospitality − urban lifestyle hotels. In which contemporary design with the local vibe to create an inviting place where relaxation, play, and work can mix. Thus, while every room type displays D'Leonor's trademark style and service, each has a distinct personality all its own.
 				D'Leonor hotel is located at Purok 5, Barangay Communal, Buhangin, Davao City...
 			</p>
 			<br>
