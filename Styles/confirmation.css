@@ -1,0 +1,14 @@
+body{
+	margin-top: 100px;
+}
+.box{
+	border-style: solid;
+	background-color: grey;
+	color: black;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+#indent{
+	margin-left: 5%;
+}

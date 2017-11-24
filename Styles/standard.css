@@ -1,0 +1,67 @@
+body{
+	background-image: url(hotel9.jpg);	
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 100%;
+	background-opacity: 30;
+}
+
+.room{
+	width: 30%;
+	float: left;
+	margin-left: 5%;
+	margin-top: 2%;
+	border-radius: 4px;
+	color: white;
+	text-align: center;
+	background-color: rgba(0,0,0,0.4);
+	border: 2px solid rgb(255,215, 0);
+	font-family: 'Bad Script', cursive; 
+	src: url('font-awesome/BadScript-Regular.ttf');"
+}
+
+.rText{
+	margin-top: -20%;
+	font-family: 'Bad Script', cursive; 
+	src: url('font-awesome/BadScript-Regular.ttf');"
+}
+
+.reservationInfo{
+	width: 100%;
+	color: black;
+	margin-top: -10%;
+	text-align: center;
+	font-family: 'Bad Script', cursive; 
+	src: url('font-awesome/BadScript-Regular.ttf');"
+}
+
+.personal{
+	color: black;
+}
+
+.btn{
+	color: black;
+	float: right;
+}
+
+.sideform{
+	width: 50%;
+	background-color: rgba(0,0,0,0.4);
+	border: 2px solid rgb(255,215, 0);
+	border-radius: 4px;
+	float: right;
+	margin-right: 5%;
+	margin-top: 2%;
+	color: black;
+}
+
+.add{
+	margin-left: 5%;
+}
+
+.box{
+    color: #fff;
+    padding: 20px;
+    display: none;
+    margin-top: 20px;
+}
