@@ -7,20 +7,20 @@ if(isset($_SESSION["type"]))
 $message = '';
 if(isset($_POST["login"]))
 {
- if(empty($_POST["user_email"]) || empty($_POST["user_password"]))
+ if(empty($_POST["admin_email"]) || empty($_POST["admin_password"]))
  {
   $message = "<div class='alert alert-danger'>Both Fields are required</div>";
  }
  else
  {
   $query = "
-  SELECT * FROM user_info 
-  WHERE user_email = :user_email
+  SELECT * FROM admin_info 
+  WHERE admin_email = :admin_email
   ";
   $statement = $connect->prepare($query);
   $statement->execute(
    array(
-    'user_email' => $_POST["user_email"]
+    'admin_email' => $_POST["admin_email"]
    )
   );
   $count = $statement->rowCount();
@@ -31,9 +31,9 @@ if(isset($_POST["login"]))
    {
     if($row["status"] == '1')
     {
-     if(password_verify($_POST["user_password"], $row["user_password"]))
+     if(password_verify($_POST["admin_password"], $row["admin_password"]))
      {
-      $_SESSION["type"] = $row["user_type"];
+      $_SESSION["type"] = $row["admin_type"];
       header("location: index.php");
      }
      else
@@ -59,9 +59,9 @@ if(isset($_POST["login"]))
 <html>
  <head>
   <title>How to Disable Enable User Login in PHP using Ajax</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bootstrap/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+  <script src="bootstrap/js/bootstrap.min.js"></script>
  </head>
  <body>
   <br />
@@ -75,11 +75,11 @@ if(isset($_POST["login"]))
       <span class="text-danger"><?php echo $message; ?></span>
       <div class="form-group">
        <label>User Email</label>
-       <input type="text" name="user_email" id="user_email" class="form-control" />
+       <input type="text" name="admin_email" id="admin_email" class="form-control" />
       </div>
       <div class="form-group">
        <label>Password</label>
-       <input type="password" name="user_password" id="user_password" class="form-control" />
+       <input type="password" name="admin_password" id="admin_password" class="form-control" />
       </div>
       <div class="form-group">
        <input type="submit" name="login" id="login" class="btn btn-info" value="Login" />

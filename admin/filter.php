@@ -1,19 +1,24 @@
 <?php
 // Range.php
-if(isset($_POST["from_date"], $_POST["to_date"]))
+if(isset($_POST["checkin"], $_POST["checkout"]))
 {
   $conn = mysqli_connect("localhost", "root", "", "hotel_reservation");
   $result = '';
-  $query = "SELECT * FROM history WHERE date BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'";
+  $query = "SELECT * FROM history WHERE checkin BETWEEN '".$_POST["checkin"]."' AND '".$_POST["checkout"]."'";
   $sql = mysqli_query($conn, $query);
   $result .='
   <table class="table table-bordered table-striped" style="margin-left:19%;">
   <tr>
-        <td>USER ID</td>
-        <td>USERNAME</td>
-        <td>ACTIVITY</td>
-        <td>DATE</td>
-        <td>STATUS</td>
+        <td>ID</td>
+            <td>LASTNAME</td>
+            <td>FIRSTNAME</td>
+            <td>CHECKIN</td>
+            <td>CHECKOUT</td>
+            <td>NO. OF GUEST</td>
+            <td>ROOM NUMBER</td>
+            <td>PAYMENT</td>
+            <td>ACTIVITY</td>
+            <td>STATUS</td>
  </tr>';
   if(mysqli_num_rows($sql) > 0)
   {
@@ -21,11 +26,16 @@ if(isset($_POST["from_date"], $_POST["to_date"]))
     {
       $result .='
       <tr>
-      <td>'.$row["user_ID"].'</td>
-      <td>'.$row["username"].'</td>
+      <td>'.$row["booking_id"].'</td>
+      <td>'.$row["lastname"].'</td>
+      <td>'.$row["firstname"].'</td>
+      <td>'.$row["checkin"].'</td>
+      <td>'.$row["checkout"].'</td>
+      <td>'.$row["numguest"].'</td>
+      <td>'.$row["num"].'</td>
+      <td>'.$row["payment"].'</td>
       <td>'.$row["activity"].'</td>
-      <td>'.$row["date"].'</td>
-      <td><button type="button" name="delete_btn" data-id3="'.$row["user_ID"].'" class="btn btn-xs btn-danger btn_delete">ARCHIVE</button></td>  
+      <td><button type="button" name="delete_btn" data-id3="'.$row["booking_id"].'" class="btn btn-xs btn-danger btn_delete">ARCHIVE</button></td>  
       </tr>';
 
     }

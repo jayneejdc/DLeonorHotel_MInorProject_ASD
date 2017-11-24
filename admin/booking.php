@@ -1,25 +1,12 @@
-<?php include 'header.html';?>
-<br><br>
-<?php
-$db_host = 'localhost'; // Server Name
-$db_user = 'root'; // Username
-$db_pass = ''; // Password
-$db_name = 'hotel_reservation'; // Database Name
-
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-if (!$conn) {
-  die ('Failed to connect to MySQL: ' . mysqli_connect_error());  
-}
-
-$sql = 'SELECT * 
-    FROM standard';
-    
-$query = mysqli_query($conn, $sql);
-
-if (!$query) {
-  die ('SQL Error: ' . mysqli_error($conn));
-}
-
+<?php $db= new mysqli('localhost','root','','hotel_reservation'); ?>
+<?php 
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db = 'hotel_reservation';
+$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
+$query = "SELECT * FROM standard";
+$result = mysqli_query($mysqli, $query);
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,8 +18,8 @@ if (!$query) {
     <link rel="stylesheet" href="admin_style.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="admin.css" type="text/css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery-ui.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
  </head>
  <body>
   <br />
@@ -40,41 +27,50 @@ if (!$query) {
       <br />
       <div align="right">
         <a href="logout.php">Logout</a>
-      </div>
+</div>
+<ul class="nav nav-pills" role="tablist">
+  <li role="presentation"><a href="booking.php" style="margin-left:170px;">STANDARD |</a></li>
+  <li role="presentation"><a href="DELUXE.php">DE LUXE |</a></li>
+  <li role="presentation"><a href="junior.php">JUNIOR SUITE |</a></li>
+  <li role="presentation"><a href="suite.php">SUITE |</a></li>
+</ul>
+     <?php include 'modal.php';?>
       <br />
      <div class="panel panel-default" style="margin-left: 19%;">
-     <div class="panel-heading">BOOKING DETAILS</div>
+     <div class="panel-heading">STANDARD DETAILS</div>
      <div class="panel-body">
        <span id="message"></span>
        <div class="table-responsive" id="user_data">
         <table class="table table-bordered table-striped">
-      <tr>
-        <td>NAME</td>
-        <td>CONTACT</td>
-        <td>CHECK-IN</td>
-        <td>CHECK-OUT</td>
-        <td>NO. OF GUEST</td>
-        <td>NO. OF ROOMS</td>
-        <td>PAYMENT</td>
-        <td>STATUS</td>
-        
-      </tr>
-      <tbody>
-        <?php
-          while( $row = mysqli_fetch_assoc( $query ) ){
-            echo
-            "<tr>
-              <td>{$row['name']}</td>
-              <td>{$row['contact']}</td>
-              <td>{$row['checkin']}</td>
-              <td>{$row['checkout']}</td>
-              <td>{$row['numguest']}</td>
-              <td>{$row['numroom']}</td>
-              <td>{$row['payment']}</td>
-              <td><button type='button'; class='btn btn-danger'>CHECKOUT</button></td>
-            </tr>";
-          }
-        ?>
+           <tr>
+                <td>ROOM NUMBER</td>
+                <td>LASTNAME</td>
+                <td>FIRSTNAME</td>
+                <td>CONTACT</td>
+                <td>CHECK-IN</td>
+                <td>CHECK-OUT</td>
+                <td>NO. OF GUEST</td>
+                <td>PAYMENT</td>
+                <td>STATUS</td>
+     
+            </tr>
+            <?php 
+              $query = "SELECT * FROM standard";
+              $result = mysqli_query($mysqli, $query);
+              while ($row = mysqli_fetch_array($result)) : ?>
+                <tr>
+                  <td>
+                    <form method="post" action="samok.php">
+                      <?php if (!empty($row[1])) : ?>
+                      <?php echo $row[1].$row[2].$row[3].$row[4].$row[5].$row[6]; ?>
+                      <input type="submit" name="action" value="Checkout"/>
+                      <input type="hidden" name="picked" value="<?php echo $row['num']; ?>"/>
+                      <br>
+                    </form>
+                  </td>
+                </tr>
+              <?php endif; ?>
+              <?php endwhile; ?>
         </table>
      <?php mysqli_close($conn); ?>
 <br/><br/>
@@ -86,6 +82,32 @@ if (!$query) {
      </div>
   </div>
  </body>
- <?php include 'sidebar.php';?>
+ <script type="text/javascript">
+      $(document).on('click','.status_checks',function(){
+      var num = ($(this).hasClass("btn-success")) ? '0' : '1';
+      var msg = (num=='0')? 'checkout' : 'checkout';
+      if(confirm("Are you sure to "+ msg)){
+        var current_element = $(this);
+        url = "ajax_checkout.php";
+        $.ajax_check({
+        type:"POST",
+        url: url,
+        data: {num:$(current_element).attr('data'),num:num},
+        success: function(data)
+          {   
+            location.reload();
+          }
+        });
+        }      
+});
+
+</script>
+  <script>
+  function OpenAlert(){
+        alert("Are you sure to CHECK-OUT? ");
+        document.getElementById("getMessage").style.visibility="hidden";
+         
+    }
+ </script>
 
 </html>

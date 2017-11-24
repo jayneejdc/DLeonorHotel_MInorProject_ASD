@@ -2,7 +2,6 @@
 extract($_POST);
 $id=$db->real_escape_string($id);
 $user=$db->real_escape_string($status);
-$sql=$db->query("UPDATE user_info SET status='$status' WHERE id='$id'");
+$sql=$db->query("UPDATE users SET status='$status' WHERE id='$id'");
 echo $sql;
-//echo 1;
 ?>

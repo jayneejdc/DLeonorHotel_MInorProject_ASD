@@ -1,7 +1,6 @@
 <?php include 'header.html';?>
 <br><br>
 <?php $db= new mysqli('localhost','root','','hotel_reservation'); ?>
-?>
 <!DOCTYPE html>
 <html>
  <head>
@@ -12,9 +11,9 @@
     <link rel="stylesheet" href="bootstrap.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="admin.css" type="text/css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery-ui.js"></script>  
           
  </head>
  <body>
@@ -27,10 +26,10 @@
       <br />
       <div class="container" style="width:900px;">    
                 <div class="col-md-3" style="margin-left:30%;">  
-                     <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />  
+                     <input type="text" name="checkin" id="checkin" class="form-control" placeholder="From Date" />  
                 </div>  
-                <div class="col-md-3" style="margin-left:1%;">  
-                     <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" />  
+                <div class="col-md-3" style="margin-left:30%;">  
+                     <input type="text" name="checkout" id="checkout" class="form-control" placeholder="to Date" />  
                 </div>  
                 <div class="col-md-5;">  
                      <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />  
@@ -40,33 +39,37 @@
                 <br />  
     <div id="user">
     <div id="live_data"></div> 
-     <div class="panel panel-default" style="margin-left:30%; margin-top: 5%;">
-     <div class="panel-heading">HISTORY DETAILS</div>
+     <div class="panel panel-default" style="width:100%;">
+     <div class="panel-heading">BOOKING DETAILS</div>
      <div class="panel-body">
        <span id="message"></span>
-      <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <table >
-        <tr>
-          <tr class='dontshow'>
-            <td>#</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Action</td>
+        <table class="table table-bordered table-striped">
+      <tr>
+          <tr>
+            <td>ROOM NUMBER</td>
+            <td>NAME</td>
+            <td>CHECKIN</td>
+            <td>CHECKOUT</td>
+            <td>NO. OF GUEST</td>
+            <td>PAYMENT</td>
+            <td>ACTIVITY</td>
             <td>STATUS</td>
         </tr>
       </tr>
-        <?php $sql=$db->query("Select * from history");
+        <?php $sql=$db->query("Select * from history ORDER BY num desc");
             foreach ($sql as $key => $user) :
               ?>
         <tr>
-            
+            <tr class='dontshow'>
              <tr class='hidethis'>
-                <td><?php echo $user['id'] ?></td>
-                <td><?php echo $user['username']; ?></td>
-                <td><?php echo $user['activity']; ?></td>
-                
+                <td><?php echo $user['num'] ?></td>
+                <td><?php echo $user['name']; ?></td>
+                <td><?php echo $user['checkin']; ?></td>
+                <td><?php echo $user['checkout']; ?></td>
+                <td><?php echo $user['numguest']; ?></td>
+                <td><?php echo $user['payment']; ?></td>
                 <td><button id="hide">Hide</button></td>
+                <td>ARCHIVE</td>
             </tr>
           </tr>
        <?php endforeach; ?>
@@ -89,18 +92,18 @@
                 dateFormat: 'yy-mm-dd'   
            });  
            $(function(){  
-                $("#from_date").datepicker();  
-                $("#to_date").datepicker();  
+                $("#checkin").datepicker();  
+                $("#checkout").datepicker();  
            });  
            $('#filter').click(function(){  
-                var from_date = $('#from_date').val();  
-                var to_date = $('#to_date').val();  
-                if(from_date != '' && to_date != '')  
+                var checkin = $('#checkin').val();  
+                var checkout = $('#checkout').val();  
+                if(checkin != '' && checkout != '')  
                 {  
                      $.ajax({  
                           url:"filter.php",  
                           method:"POST",  
-                          data:{from_date:from_date, to_date:to_date},  
+                          data:{checkin:checkin, checkout:checkout},  
                           success:function(data)  
                           {  
                                $('#user').html(data);  
@@ -128,9 +131,6 @@
 </div>
 </div>
 </body>
- <!-- Sidebar -->
-<?php include 'sidebar.php';?>
-
   </html>
 
 
