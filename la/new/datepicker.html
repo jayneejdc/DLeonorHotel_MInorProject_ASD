@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
+
+
+</head>
+<body>
+	<input id="txtstartdate" />
+	<input id="txtenddate" />
+</body>
+<script>
+	$("#txtstartdate").datepicker({
+  minDate: 0,
+  onSelect: function(date) {
+    $("#txtenddate").datepicker('option', 'minDate', date);
+  }
+});
+
+$("#txtenddate").datepicker({});
+</script>
+</html>

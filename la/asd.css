@@ -1,0 +1,30 @@
+body{
+	background-image: url(hotel9.jpg);	
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 100%;
+	background-opacity: 30;
+}
+
+.login{
+	background-color: rgba(0,0,0,0.4);
+	width: 60%;
+	text-align: center;
+}
+
+.welcome{
+	background-color: rgba(0,0,0,0.4);
+	margin-top: 5%;
+	margin-left: 30%;
+}
+
+.module{
+	background-color: rgba(0,0,0,0.4);
+	width: 60%;
+	text-align: center;
+}
+
+input{
+	width: 30%;
+}
+
