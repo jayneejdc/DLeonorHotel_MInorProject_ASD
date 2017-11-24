@@ -1,5 +1,6 @@
 <?php include 'html/header.html';?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="Styles/stysty.css">
+	<link rel="stylesheet" type="text/css" href="Styles/sty.css">
 	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
 </head>
 <body>
@@ -111,7 +112,7 @@
 			<img src="Images/hotel11.jpg" style="width: 40%; height: 80%; float: right; margin-top: -5.5%; margin-right: 1%; border: 2px solid rgb(218,165,32);" >
 			<p>
 				<br>
-				The D'Leonor Hotel offers a new experience in hospitality − urban lifestyle hotels. In which contemporary design with the local vibe to create an inviting place where relaxation, play, and work can mix. Thus, while every room type displays D'Leonor's trademark style and service, each has a distinct personality all its own.
+				The D'Leonor Hotel offers a new experience in hospitality − urban lifestyle hotels.<br>In which contemporary design with the local vibe to create an inviting place where relaxation, play, and work can mix. Thus, while every room type displays D'Leonor's trademark style and service, each has a distinct personality all its own.
 				D'Leonor hotel is located at Purok 5, Barangay Communal, Buhangin, Davao City...
 			</p>
 			<br>
